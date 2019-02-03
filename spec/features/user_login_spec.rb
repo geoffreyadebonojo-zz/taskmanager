@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'User' do
-  it "can register" do
+  xit "can register" do
 
     visit '/'
 

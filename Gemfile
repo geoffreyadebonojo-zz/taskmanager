@@ -38,6 +38,7 @@ gem 'faker'
 
 
 group :development, :test do
+  gem 'rb-readline'
   gem 'pry'
   gem 'rspec-rails'
   gem 'shoulda-matchers', '~> 3.1'
