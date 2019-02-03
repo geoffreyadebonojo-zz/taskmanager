@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'User' do
-  xit "can register" do
+  it "can register" do
 
     visit '/'
 
@@ -37,4 +37,30 @@ describe 'User' do
     expect(current_path).to eq(profile_path)
     expect(page).to have_content(user.username)
   end
+
+  it "can log out" do
+
+    user = create(:user)
+
+    visit '/'
+
+    click_on 'Sign In'
+
+    expect(current_path).to eq(login_path)
+    expect(page).to have_content('Please Log In')
+
+    fill_in 'username', with: user.username
+    fill_in 'password', with: user.password
+
+    click_on 'Log In'
+
+    expect(current_path).to eq(profile_path)
+    expect(page).to have_content(user.username)
+
+    click_on 'Logout'
+
+    expect(page).to have_content("Welcome")
+
+  end
+
 end
