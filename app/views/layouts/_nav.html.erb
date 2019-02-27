@@ -1,0 +1,10 @@
+<nav>
+  <div id="signed-in">
+    <% if current_user %>
+    <%= link_to "Logout", logout_path, method: :delete %>
+    <% else %>
+    <%= link_to 'Sign In', login_path %> |
+    <%= link_to 'Register', registration_path %>
+    <% end %>
+  </div>
+</nav>
