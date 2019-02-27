@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
   # GET /topics
   # GET /topics.json
   def index
-    @topics = Topic.all
+    @topics = current_user.topics.all
   end
 
   # GET /topics/1
@@ -14,7 +14,7 @@ class TopicsController < ApplicationController
 
   # GET /topics/new
   def new
-    @topic = Topic.new
+    @topic = current_user.topics.new
   end
 
   # GET /topics/1/edit
@@ -24,7 +24,7 @@ class TopicsController < ApplicationController
   # POST /topics
   # POST /topics.json
   def create
-    @topic = Topic.new(topic_params)
+    @topic = current_user.topics.new(topic_params)
 
     respond_to do |format|
       if @topic.save
@@ -64,7 +64,7 @@ class TopicsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_topic
-      @topic = Topic.find(params[:id])
+      @topic = current_user.topics.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
