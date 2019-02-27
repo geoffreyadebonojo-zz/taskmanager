@@ -23,13 +23,13 @@ default: &default
 
 development:
   <<: *default
-  database: nanowriter_development
+  database: taskmanager_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: nanowriter
+  #username: taskmanager
 
   # The password associated with the postgres role (username).
   #password:
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: nanowriter_test
+  database: taskmanager_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: nanowriter_production
-  username: nanowriter
-  password: <%= ENV['NANOWRITER_DATABASE_PASSWORD'] %>
+  database: taskmanager_production
+  username: taskmanager
+  password: <%= ENV['TASKMANAGER_DATABASE_PASSWORD'] %>
