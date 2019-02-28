@@ -13,3 +13,5 @@
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
+var notice = document.querySelector('#notice');
+setTimeout(function(){ notice.innerText=""; }, 7000);
