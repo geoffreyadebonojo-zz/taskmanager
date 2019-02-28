@@ -10,5 +10,8 @@ Rails.application.routes.draw do
   get '/registration', to: 'users#new'
   post '/registration', to: 'users#create'
 
-  resources :topics
+  resources :topics do
+    resources :bookmarks
+  end
+
 end
