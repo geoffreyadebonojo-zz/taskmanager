@@ -4,7 +4,8 @@ class BookmarksController < ApplicationController
   # GET /bookmarks
   # GET /bookmarks.json
   def index
-    @bookmarks = @bookmark = current_user.topics.find(params[:topic_id]).bookmarks.all
+    @topic = Topic.find(params[:topic_id])
+    @bookmarks = current_user.topics.find(params[:topic_id]).bookmarks.all
   end
 
   # GET /bookmarks/1
@@ -55,7 +56,7 @@ class BookmarksController < ApplicationController
   def destroy
     @bookmark.destroy
     respond_to do |format|
-      format.html { redirect_to bookmarks_url, notice: 'Bookmark was successfully destroyed.' }
+      format.html { redirect_to topic_bookmarks_url, notice: 'Bookmark was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -63,7 +64,7 @@ class BookmarksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_bookmark
-      @bookmark = current_user.topics.find(params[:topics_id]).bookmarks.find(params[:id])
+      @bookmark = current_user.topics.find(params[:topic_id]).bookmarks.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

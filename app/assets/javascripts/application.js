@@ -13,5 +13,13 @@
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
-var notice = document.querySelector('#notice');
-setTimeout(function(){ notice.innerText=""; }, 7000);
+
+// var notice = document.querySelector('#notice');
+// setTimeout(function(){ notice.innerHTML="<br>"; }, 7000);
+
+
+/// reposition background ///
+// var image = document.querySelector("#background-image");
+// image.style.bottom = -(Math.random()*500 + 60) + "px";
+// image.style.right = -(Math.random()*500) + "px";
+// image.style.position = "fixed";

@@ -1,0 +1,12 @@
+<p>
+  <strong>Uri:</strong>
+  <%= @video.uri %>
+</p>
+
+<p>
+  <strong>Topic:</strong>
+  <%= @video.topic %>
+</p>
+
+<%= link_to 'Edit', edit_topic_video_path(@video) %> |
+<%= link_to 'Back', topic_videos_path %>

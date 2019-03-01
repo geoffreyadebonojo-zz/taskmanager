@@ -1,8 +1,16 @@
-<%= link_to 'Bookmarks', "/topics/#{@topic.id}/bookmarks" %>
-<p>
-  <strong>Name:</strong>
+<h1>
   <%= @topic.name %>
-</p>
+</h1>
+
+<div>
+  <%= link_to 'Bookmarks', "/topics/#{@topic.id}/bookmarks" %>:
+  <%= @topic.bookmarks.count %>
+</div>
+
+<div>
+  <%= link_to 'Videos', "/topics/#{@topic.id}/videos" %>:
+  <%= @topic.videos.count %>
+</div>
 
 
 <%= link_to 'Edit', edit_topic_path(@topic) %> |

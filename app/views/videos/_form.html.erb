@@ -1,0 +1,26 @@
+<%= form_for(:videos, :url => topic_videos_path, :method => :post) do |form| %>
+  <% if video.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(video.errors.count, "error") %> prohibited this video from being saved:</h2>
+
+      <ul>
+      <% video.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :uri %>
+    <%= form.text_field :uri %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :topic_id, value: "#{params[:topic_id]}" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

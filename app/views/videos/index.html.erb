@@ -1,0 +1,27 @@
+
+<h1><%= link_to @topic.name, topic_path(@topic) %></h1>
+<h1>Videos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Uri</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @videos.each do |video| %>
+      <tr>
+        <td><%= video.uri %></td>
+        <td><%= link_to 'Show', "/topics/#{params[:topic_id]}/videos/#{video.id}" %></td>
+        <td><%# link_to 'Edit', "/topics/#{params[:topic_id]}/videos/#{video.id}/edit/" %></td>
+        <td><%= link_to 'Destroy', "/topics/#{params[:topic_id]}/videos/#{video.id}", method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Video', new_topic_video_path %>
