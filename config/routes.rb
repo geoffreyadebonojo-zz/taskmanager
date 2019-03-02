@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get '/watch', to: 'watch#show'
   get '/', to: 'welcome#show'
 
   get 'login', to: 'sessions#new'

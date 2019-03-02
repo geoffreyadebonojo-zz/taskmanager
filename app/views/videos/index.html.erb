@@ -1,6 +1,5 @@
 
-<h1><%= link_to @topic.name, topic_path(@topic) %></h1>
-<h1>Videos</h1>
+<h1><%= link_to @topic.name, topic_path(@topic) %>/Videos</h1>
 
 <table>
   <thead>
@@ -13,7 +12,7 @@
   <tbody>
     <% @videos.each do |video| %>
       <tr>
-        <td><%= video.uri %></td>
+        <td><iframe class="video" src="<%= video.uri %>" frameborder="0" allowfullscreen></iframe></td>
         <td><%= link_to 'Show', "/topics/#{params[:topic_id]}/videos/#{video.id}" %></td>
         <td><%# link_to 'Edit', "/topics/#{params[:topic_id]}/videos/#{video.id}/edit/" %></td>
         <td><%= link_to 'Destroy', "/topics/#{params[:topic_id]}/videos/#{video.id}", method: :delete %></td>
@@ -24,4 +23,4 @@
 
 <br>
 
-<%= link_to 'New Video', new_topic_video_path %>
+<%= link_to 'Search Youtube', new_topic_video_path %>

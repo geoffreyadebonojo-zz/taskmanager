@@ -16,6 +16,9 @@ class VideosController < ApplicationController
   # GET /videos/new
   def new
     @video = Video.new
+    @topic = Topic.find(params[:topic_id])
+    @youtube_videos = YoutubeService.new(@topic.name).embed_links.uniq.first(5)
+
   end
 
   # GET /videos/1/edit

@@ -23,3 +23,9 @@
 // image.style.bottom = -(Math.random()*500 + 60) + "px";
 // image.style.right = -(Math.random()*500) + "px";
 // image.style.position = "fixed";
+
+var search = document.querySelector('#video-search-input');
+var button = document.querySelector('#video-search-button');
+button.addEventListener('click', function(){
+  var title = search.value;
+});
