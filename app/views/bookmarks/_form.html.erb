@@ -1,4 +1,5 @@
 <%= form_for(:bookmarks, :url => topic_bookmarks_path, :method => :post) do |form| %>
+
   <% if bookmark.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(bookmark.errors.count, "error") %> prohibited this bookmark from being saved:</h2>

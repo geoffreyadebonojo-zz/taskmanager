@@ -11,21 +11,19 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery
 //= require activestorage
 //= require_tree .
 
 // var notice = document.querySelector('#notice');
 // setTimeout(function(){ notice.innerHTML="<br>"; }, 7000);
 
+// var search = document.querySelector('#video-search-input');
+// var button = document.querySelector('#video-search-button');
+// button.addEventListener('click', function(){
+//   var title = search.value;
+// });
 
-/// reposition background ///
-// var image = document.querySelector("#background-image");
-// image.style.bottom = -(Math.random()*500 + 60) + "px";
-// image.style.right = -(Math.random()*500) + "px";
-// image.style.position = "fixed";
-
-var search = document.querySelector('#video-search-input');
-var button = document.querySelector('#video-search-button');
-button.addEventListener('click', function(){
-  var title = search.value;
-});
+function saveTitle(title){
+  console.log(title);
+}

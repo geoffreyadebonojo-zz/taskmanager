@@ -11,14 +11,18 @@ class VideosController < ApplicationController
   # GET /videos/1
   # GET /videos/1.json
   def show
+    @notes = @video.notes
   end
 
   # GET /videos/new
   def new
     @video = Video.new
     @topic = Topic.find(params[:topic_id])
-    @youtube_videos = YoutubeService.new(@topic.name).embed_links.uniq.first(5)
-
+    if params[:search]
+      @youtube_videos = YoutubeService.new(params[:search]).embed_links.uniq
+    else
+      @youtube_videos = YoutubeService.new(@topic.name).embed_links.uniq
+    end
   end
 
   # GET /videos/1/edit
@@ -73,6 +77,6 @@ class VideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
-      params.require(:videos).permit(:uri, :topic_id)
+      params.require(:videos).permit(:uri, :topic_id, :search_term)
     end
 end

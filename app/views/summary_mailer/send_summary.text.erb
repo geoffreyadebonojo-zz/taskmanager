@@ -1,0 +1,26 @@
+<% if @videos != [] %>
+  <h2>Videos</h2>
+  <ul>
+    <% @videos.each do |video| %>
+      <li><%= link_to video.search_term_name, video.watch_link, target:"_blank" %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if @bookmarks != [] %>
+  <h2>Bookmarks</h2>
+  <ul>
+    <% @bookmarks.each do |bookmark| %>
+      <li><%= link_to bookmark.url, bookmark.url, target:"_blank" %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if @notes != [] %>
+  <h2>Notes</h2>
+  <ul>
+    <% @notes.each do |note| %>
+      <li><%= note.body %></li>
+    <% end %>
+  </ul>
+<% end %>

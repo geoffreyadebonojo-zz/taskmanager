@@ -1,29 +1,21 @@
-<input type="text" id="video-search-input">
-<button id="video-search-button">Search</button>
+<form action="/topics/<%= @topic.id %>/videos/new" autocomplete="off" method="GET">
+    <input type="text" name="search" />
+    <input type="submit" value="Submit" />
+</form>
+<hr>
 
-<% @youtube_videos.each do |url| %>
-<%= form_for(:videos, :url => topic_videos_path, :method => :post) do |form| %>
-  <% if video.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(video.errors.count, "error") %> prohibited this video from being saved:</h2>
-
-      <ul>
-      <% video.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<% if @youtube_videos %>
+  <div id="videos-container">
+    <% @youtube_videos.each do |url| %>
+      <%= form_for(:videos, :url => topic_videos_path, :method => :post) do |form| %>
+        <div >
+          <button id="save-button">Save</button>
+          <iframe class="video" src="<%= url %>" frameborder="0" allowfullscreen></iframe>
+          <%= form.hidden_field :search_term, value: "#{params[:search]}" %>
+          <%= form.hidden_field :uri, value: url %>
+          <%= form.hidden_field :topic_id, value: "#{params[:topic_id]}" %>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <hr>
-    <div>
-      <button id="save-button">Save</button>
-      <iframe class="video" src="<%= url %>" frameborder="0" allowfullscreen></iframe>
-      <%= form.hidden_field :uri, value: url %>
-      <%= form.hidden_field :topic_id, value: "#{params[:topic_id]}" %>
-    </div>
-
+    <% end %>
   </div>
-  <% end %>
-
 <% end %>

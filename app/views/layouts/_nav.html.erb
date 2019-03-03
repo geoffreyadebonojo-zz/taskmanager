@@ -9,13 +9,6 @@
         Signed in as <%= current_user.username %> |
         <%= link_to "Logout", logout_path, method: :delete %>
       </div>
-      <div id="notice">
-        <% if notice %>
-          <%= notice %>
-        <% else %>
-          <br>
-        <% end %>
-      </div>
     <% else %>
       <div id="sign-in-or-register">
         <%= link_to 'Sign In', login_path %> |

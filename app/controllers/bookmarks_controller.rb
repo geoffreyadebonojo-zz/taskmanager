@@ -11,6 +11,7 @@ class BookmarksController < ApplicationController
   # GET /bookmarks/1
   # GET /bookmarks/1.json
   def show
+    @notes = @bookmark.notes
   end
 
   # GET /bookmarks/new

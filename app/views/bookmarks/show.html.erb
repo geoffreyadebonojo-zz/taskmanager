@@ -10,8 +10,14 @@
 
 <p>
   <strong>Topic:</strong>
-  <%= @bookmark.topic %>
+  <%= @bookmark.topic.name %>
 </p>
 
-<%= link_to 'Edit', edit_bookmark_path(@bookmark) %> |
-<%= link_to 'Back', bookmarks_path %>
+<strong>Notes:</strong>
+<ul>
+  <% @notes.each do |note| %>
+    <li><%= note.body %></li>
+  <% end %>
+</ul>
+<%= link_to 'Edit', edit_topic_bookmark_path(@bookmark) %> |
+<%= link_to 'Back', topic_bookmarks_path %>
