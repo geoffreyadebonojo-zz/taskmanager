@@ -1,11 +1,20 @@
-<p id="notice"><%= notice %></p>
+<h1><%= link_to "Topics", topics_path %>/<%= @topic.name %></h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @topic.name %>
-</p>
+<div>
+  <%= link_to 'Bookmarks', "/topics/#{@topic.id}/bookmarks" %>:
+  <%= @topic.bookmarks.count %>
+</div>
 
+<div>
+  <%= link_to 'Videos', "/topics/#{@topic.id}/videos" %>:
+  <%= @topic.videos.count %>
+</div>
 
+<div>
+  <%= link_to 'Notes', "/topics/#{@topic.id}/notes" %>:
+  <%= @topic.notes.count  %>
+</div>
 
-<%= link_to 'Edit', edit_topic_path(@topic) %> |
-<%= link_to 'Back', topics_path %>
+<div>
+  <%= link_to 'Summary', "/topics/#{@topic.id}/summary" %>
+</div>

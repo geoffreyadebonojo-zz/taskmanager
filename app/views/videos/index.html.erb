@@ -1,0 +1,22 @@
+<h1><%= link_to "Topics", topics_path %>/<%= link_to @topic.name, topic_path(@topic) %>/Videos</h1>
+
+<%= link_to 'Search Youtube', new_topic_video_path %>
+
+<div id="video-cards">
+  <% @videos.each do |video| %>
+    <table class="video-card">
+      <tbody>
+        <tr>
+          <td class="show-delete-buttons"><%= link_to 'Show', "/topics/#{params[:topic_id]}/videos/#{video.id}" %>
+          |<%= link_to 'Destroy', "/topics/#{params[:topic_id]}/videos/#{video.id}", method: :delete %></td>
+        </tr>
+        <tr>
+          <td><iframe class="video" src="<%= video.uri %>" frameborder="0" allowfullscreen></iframe></td>
+        </tr>
+        <tr>
+          <td><%= video.created_at.strftime("%A, %m/%d") %>|<%= link_to video.search_term, "/topics/#{@topic.id}/videos/new?search=#{video.search_term}"%></td>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
+</div>

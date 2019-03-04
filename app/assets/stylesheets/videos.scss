@@ -1,0 +1,12 @@
+// Place all the styles related to the videos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#videos-container, #video-cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.video-card {
+  background: grey;
+  margin: 2em;
+}

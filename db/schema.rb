@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_27_220547) do
+ActiveRecord::Schema.define(version: 2019_03_03_181456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.bigint "topic_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topic_id"], name: "index_bookmarks_on_topic_id"
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.text "body"
+    t.string "bookmark_id"
+    t.string "video_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "topic_id"
+    t.index ["topic_id"], name: "index_notes_on_topic_id"
+  end
 
   create_table "topics", force: :cascade do |t|
     t.string "name"
@@ -31,5 +50,17 @@ ActiveRecord::Schema.define(version: 2019_02_27_220547) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "videos", force: :cascade do |t|
+    t.string "uri"
+    t.bigint "topic_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "search_term"
+    t.index ["topic_id"], name: "index_videos_on_topic_id"
+  end
+
+  add_foreign_key "bookmarks", "topics"
+  add_foreign_key "notes", "topics"
   add_foreign_key "topics", "users"
+  add_foreign_key "videos", "topics"
 end
