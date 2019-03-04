@@ -5,6 +5,9 @@
 
 <iframe class="video" src="<%= @video.uri %>" frameborder="0" allowfullscreen width="100%" height="300px"></iframe>
 <button id="open-notes">Notes</button>
+
+<%= render 'notes/form', note: @note %>
+
 <% @notes.each do |note| %>
   <li><%= note.body %></li>
 <% end %>

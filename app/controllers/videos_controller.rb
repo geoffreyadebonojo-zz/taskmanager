@@ -11,7 +11,9 @@ class VideosController < ApplicationController
   # GET /videos/1
   # GET /videos/1.json
   def show
+    @topic = Topic.find(params[:topic_id])
     @notes = @video.notes
+    @note = current_user.topics.find(params[:topic_id]).notes.new(video_id: params[:id])
   end
 
   # GET /videos/new

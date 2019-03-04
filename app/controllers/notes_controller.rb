@@ -29,7 +29,7 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.save
-        format.html { redirect_to topic_notes_path, notice: 'Note was successfully created.' }
+        format.html { redirect_to request.referrer, notice: 'Note was successfully created.' }
         format.json { render :show, status: :created, location: @note }
       else
         format.html { render :new }
@@ -70,6 +70,6 @@ class NotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def note_params
-      params.require(:notes).permit(:body, :bookmark_id, :video_id, :topic_id)
+      params.require(:note).permit(:body, :bookmark_id, :video_id, :topic_id)
     end
 end

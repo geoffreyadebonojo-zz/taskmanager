@@ -10,7 +10,8 @@ class SummaryController < ApplicationController
 
   def create
     topic = Topic.find(params[:topic_id])
-    SummaryMailer.send_summary(topic).deliver_now
+    email = current_user.email
+    SummaryMailer.send_summary(email, topic).deliver_now
     flash[:notice] = "Email Sent"
     redirect_to "/profile"
   end

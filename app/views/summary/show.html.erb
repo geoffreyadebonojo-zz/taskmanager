@@ -1,15 +1,16 @@
 <h1><%= link_to "Topics", topics_path %>/<%= link_to @topic.name, topic_path(@topic) %>/Summary</h1>
 
-
 <% if @videos != [] %>
   <h2>Videos</h2>
   <ul>
     <% @videos.each do |video| %>
       <li><%= link_to video.search_term_name, video.watch_link, target:"_blank" %></li>
       <% if video.notes != [] %>
-        <% video.notes.each do |note| %>
-          <%= note.body %>
-        <% end %>
+        <ul>
+          <% video.notes.each do |note| %>
+            <li><%= note.body %></li>
+          <% end %>
+        </ul>
       <% end %>
     <% end %>
   </ul>
@@ -20,6 +21,13 @@
   <ul>
     <% @bookmarks.each do |bookmark| %>
       <li><%= link_to bookmark.url, bookmark.url, target:"_blank" %></li>
+      <% if bookmark.notes != [] %>
+        <ul>
+          <% bookmark.notes.each do |note| %>
+            <li><%= note.body %></li>
+          <% end %>
+        </ul>
+      <% end %>
     <% end %>
   </ul>
 <% end %>
