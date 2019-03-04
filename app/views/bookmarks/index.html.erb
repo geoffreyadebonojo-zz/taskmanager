@@ -1,5 +1,7 @@
 <h1><%= link_to "Topics", topics_path %>/<%= link_to @topic.name, topic_path(@topic) %>/Bookmarks</h1>
 
+<%= render 'form', bookmark: @bookmark %>
+
 <table>
   <thead>
     <tr>
@@ -23,5 +25,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Bookmark', new_topic_bookmark_path %>

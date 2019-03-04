@@ -6,6 +6,7 @@ class BookmarksController < ApplicationController
   def index
     @topic = Topic.find(params[:topic_id])
     @bookmarks = current_user.topics.find(params[:topic_id]).bookmarks.all
+    @bookmark = current_user.topics.find(params[:topic_id]).bookmarks.new
   end
 
   # GET /bookmarks/1
@@ -27,7 +28,7 @@ class BookmarksController < ApplicationController
   # POST /bookmarks.json
   def create
     @bookmark = Bookmark.new(bookmark_params)
-    @title = PageTitleGetter.new(params[:bookmarks][:url]).title
+    @title = PageTitleGetter.new(params[:bookmark][:url]).title
     @bookmark.name = @title
 
     respond_to do |format|
@@ -73,6 +74,6 @@ class BookmarksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bookmark_params
-      params.require(:bookmarks).permit(:name, :url, :topic_id)
+      params.require(:bookmark).permit(:name, :url, :topic_id)
     end
 end
