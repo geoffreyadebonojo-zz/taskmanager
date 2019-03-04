@@ -2,11 +2,13 @@
   <h2>Videos</h2>
   <ul>
     <% @videos.each do |video| %>
-      <li><%= link_to video.search_term_name, video.watch_link, target:"_blank" %></li>
+      <li><%= link_to video.title, video.watch_link, target:"_blank" %></li>
       <% if video.notes != [] %>
-        <% video.notes.each do |note| %>
-          <%= note.body %>
-        <% end %>
+        <ul>
+          <% video.notes.each do |note| %>
+            <li><%= note.body %></li>
+          <% end %>
+        </ul>
       <% end %>
     <% end %>
   </ul>
@@ -18,15 +20,17 @@
     <% @bookmarks.each do |bookmark| %>
       <li><%= link_to bookmark.url, bookmark.url, target:"_blank" %></li>
       <% if bookmark.notes != [] %>
-        <% bookmark.notes.each do |note| %>
-          <%= note.body %>
-        <% end %>
+        <ul>
+          <% bookmark.notes.each do |note| %>
+            <li><%= note.body %></li>
+          <% end %>
+        </ul>
       <% end %>
     <% end %>
   </ul>
 <% end %>
 
-<% if @misc_notes != [] %>
+<% if @misc_notes %>
   <h2>Notes</h2>
   <ul>
     <% @misc_notes.each do |note| %>

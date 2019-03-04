@@ -23,7 +23,3 @@
 // button.addEventListener('click', function(){
 //   var title = search.value;
 // });
-
-function saveTitle(title){
-  console.log(title);
-}

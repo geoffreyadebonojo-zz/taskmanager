@@ -2,4 +2,10 @@
 
 <%= render 'form', note: @note %>
 
+<% if @notes %>
+  <% @notes.each do |note| %>
+    <li><%= note.body %></li>
+  <% end %>
+<% end %>
+
 <%= link_to 'Back', topic_notes_path %>

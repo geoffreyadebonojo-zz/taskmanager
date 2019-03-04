@@ -8,13 +8,17 @@
   <div id="videos-container">
     <% @youtube_videos.each do |url| %>
       <%= form_for(:videos, :url => topic_videos_path, :method => :post) do |form| %>
-        <div >
-          <button id="save-button">Save</button>
-          <iframe class="video" src="<%= url %>" frameborder="0" allowfullscreen></iframe>
+        <table class="video-card">
+          <tr>
+            <th><button id="save-button">Save</button></th>
+          </tr>
+          <tr>
+            <td><iframe class="video" src="<%= url %>" frameborder="0" allowfullscreen></iframe><td>
+          </tr>
           <%= form.hidden_field :search_term, value: "#{params[:search]}" %>
           <%= form.hidden_field :uri, value: url %>
           <%= form.hidden_field :topic_id, value: "#{params[:topic_id]}" %>
-        </div>
+        </table>
       <% end %>
     <% end %>
   </div>
