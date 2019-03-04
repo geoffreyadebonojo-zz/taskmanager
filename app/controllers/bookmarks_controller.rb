@@ -27,6 +27,10 @@ class BookmarksController < ApplicationController
   # POST /bookmarks.json
   def create
     @bookmark = Bookmark.new(bookmark_params)
+    @title = PageTitleGetter.new(params[:bookmarks][:url]).title
+    @bookmark.name = @title
+    binding.pry
+
     respond_to do |format|
       if @bookmark.save
         format.html { redirect_to topic_bookmarks_url, notice: 'Bookmark was successfully created.' }

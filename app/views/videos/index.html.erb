@@ -7,8 +7,11 @@
     <table class="video-card">
       <tbody>
         <tr>
+          <td class="video-title"><%= video.title %></td>
+        </tr>
+        <tr>
           <td class="show-delete-buttons"><%= link_to 'Show', "/topics/#{params[:topic_id]}/videos/#{video.id}" %>
-          |<%= link_to 'Destroy', "/topics/#{params[:topic_id]}/videos/#{video.id}", method: :delete %></td>
+          |<%= link_to 'Destroy', "/topics/#{params[:topic_id]}/videos/#{video.id}", method: :delete %>
         </tr>
         <tr>
           <td><iframe class="video" src="<%= video.uri %>" frameborder="0" allowfullscreen></iframe></td>

@@ -3,11 +3,7 @@
 <%= link_to 'Edit', edit_topic_video_path(@video) %> |
 <%= link_to 'Back', topic_videos_path %>
 
-<iframe class="video" src="<%= @video.uri %>" frameborder="0" allowfullscreen width="100%" height="300px"></iframe>
+<iframe id="video" src="<%= @video.uri %>" frameborder="0" allowfullscreen width="100%" height="300px"></iframe>
+
 <button id="open-notes">Notes</button>
-
-<%= render 'notes/form', note: @note %>
-
-<% @notes.each do |note| %>
-  <li><%= note.body %></li>
-<% end %>
+<iframe id="notes" src="/topics/<%=@topic.id%>/notes/new" style="border: red solid 1px;"></iframe>
