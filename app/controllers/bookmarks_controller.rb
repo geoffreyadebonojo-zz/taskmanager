@@ -29,7 +29,6 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new(bookmark_params)
     @title = PageTitleGetter.new(params[:bookmarks][:url]).title
     @bookmark.name = @title
-    binding.pry
 
     respond_to do |format|
       if @bookmark.save
