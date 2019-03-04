@@ -6,6 +6,11 @@
   <ul>
     <% @videos.each do |video| %>
       <li><%= link_to video.search_term_name, video.watch_link, target:"_blank" %></li>
+      <% if video.notes != [] %>
+        <% video.notes.each do |note| %>
+          <%= note.body %>
+        <% end %>
+      <% end %>
     <% end %>
   </ul>
 <% end %>
@@ -19,10 +24,10 @@
   </ul>
 <% end %>
 
-<% if @notes != [] %>
+<% if @misc_notes != [] %>
   <h2>Notes</h2>
   <ul>
-    <% @notes.each do |note| %>
+    <% @misc_notes.each do |note| %>
       <li><%= note.body %></li>
     <% end %>
   </ul>

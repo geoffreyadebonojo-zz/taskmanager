@@ -4,13 +4,14 @@ class SummaryController < ApplicationController
     @videos = @topic.videos.all
     @bookmarks = @topic.bookmarks.all
     @notes = @topic.notes.all
+
+    @misc_notes = @notes.misc
   end
 
   def create
     topic = Topic.find(params[:topic_id])
     SummaryMailer.send_summary(topic).deliver_now
     flash[:notice] = "Email Sent"
-    binding.pry
-    redirect_to "/"
+    redirect_to "/profile"
   end
 end

@@ -10,7 +10,7 @@ class Note < ApplicationRecord
   end
 
   def self.misc
-    Note.where(bookmark_id: nil).where(video_id: nil)
+    Note.where(bookmark_id: "").where(video_id: "")
   end
 
 end
