@@ -22,8 +22,8 @@ class BookmarksController < ApplicationController
     # @results = [["link", "url"], ["link", "url"], ["link", "url"], ["link", "url"]]
     @results = []
 
-    if params[:links] == "active" && current_user.active
-      @results ||= GoogleService.new(@topic.name).load_pages
+    if params[:links] == "active"
+      @results = GoogleService.new(@topic.name).load_pages
     end
   end
 
@@ -40,7 +40,7 @@ class BookmarksController < ApplicationController
 
     respond_to do |format|
       if @bookmark.save
-        format.html { redirect_to request.referrer, notice: 'Bookmark was successfully created.' }
+        format.html { redirect_to topic_bookmarks_path, notice: 'Bookmark was successfully created.' }
         format.json { render :show, status: :created, location: @bookmark }
       else
         format.html { render :new }
