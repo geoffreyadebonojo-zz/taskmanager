@@ -11,12 +11,14 @@ class TopicsController < ApplicationController
   # GET /topics/1
   # GET /topics/1.json
   def show
+    @parent = @topic.parent
+    @child = @topic.child
   end
 
   # GET /topics/new
   def new
     @topic = current_user.topics.new
-    @topic.name = params[:topic]
+    @parent = Topic.find_by(name: params[:parent])
   end
 
   # GET /topics/1/edit
@@ -71,6 +73,6 @@ class TopicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def topic_params
-      params.require(:topic).permit(:name, :user_id)
+      params.require(:topic).permit(:name, :user_id, :topic, :parent_id)
     end
 end

@@ -11,13 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field" >
-    <%= form.text_field :name, id:"name-field", placeholder:"New Topic..."%>
-  </div>
-
   <div class="field">
     <%= form.hidden_field :user_id %>
   </div>
+
+  <% if params[:topic] %>
+    <div class="field" >
+      <%= form.text_field :name, id:"name-field", value: "#{params[:topic]}"%>
+    </div>
+  <% else %>
+    <div class="field" >
+      <%= form.text_field :name, id:"name-field", placeholder:"New Topic..."%>
+    </div>
+  <% end %>
+
+  <% if @parent %>
+    <div class="field">
+      <%= form.hidden_field :parent_id, value:"#{@parent.id}" %>
+    </div>
+  <% else %>
+    <%= form.hidden_field :parent_id, value: 0 %>
+  <% end %>
 
   <div class="actions">
     <%= form.submit id:"submit-button"%>
