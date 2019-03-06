@@ -7,7 +7,7 @@
       <div><%= note.links %></div>
       <div><%= link_to "View", "/topics/#{@topic.id}/videos/new?search=#{note.links}" %></div>
       <div><%= link_to "Search", "#" %></div>
-      <div><%= link_to "Create Topic", "/topics/new?topic=#{note.links}" %></div>
+      <div><%= link_to "Create Topic", "/topics/new?topic=#{note.links}&parent=#{@parent_name}" %></div>
     <% end %>
   <% end %>
 </div>

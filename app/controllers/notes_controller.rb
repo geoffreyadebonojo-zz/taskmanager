@@ -6,6 +6,7 @@ class NotesController < ApplicationController
   def index
     @topic = Topic.find(params[:topic_id])
     @notes = current_user.topics.find(params[:topic_id]).notes
+    @parent_name = @topic.name
   end
 
   # GET /notes/1

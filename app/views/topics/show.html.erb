@@ -1,5 +1,15 @@
 <h1><%= link_to "Topics", topics_path %>/<%= @topic.name %></h1>
 
+<% if @parent %>
+  <% @topic.increment.reverse.each do |ancestor| %>
+     -><%= link_to ancestor.name, topic_path(ancestor.id) %>
+  <% end %>
+<% end %>
+
+<% if @child %>
+  -><%= link_to @child.name, topic_path(@child.id) %>
+<% end %>
+
 <div id="topic-show">
   <div><%= link_to 'Bookmarks', "/topics/#{@topic.id}/bookmarks" %>:</div>
   <div><%= @topic.bookmarks.count %></div>
