@@ -41,6 +41,8 @@
   </ul>
 <% end %>
 
-<%= form_for '/summary' do |form| %>
-<%= form.submit 'Email to Self' %>
+<% if current_user.active %>
+  <%= form_for '/summary' do |form| %>
+    <%= form.submit 'Email to Self' %>
+  <% end %>
 <% end %>

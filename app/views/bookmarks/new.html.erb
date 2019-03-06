@@ -6,6 +6,8 @@
   <%= form.submit %>
 <% end %>
 
-<%= link_to "Search", "/topics/#{@topic.id}/bookmarks/new?links=active" %> |
+<% if current_user.active %>
+  <%= link_to "Search", "/topics/#{@topic.id}/bookmarks/new?links=active" %> |
+<% end %>
 <%= link_to 'Back', topic_bookmarks_path %>
 <%= render 'form', bookmark: @bookmark %>
