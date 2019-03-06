@@ -23,7 +23,7 @@ class BookmarksController < ApplicationController
     @results = []
 
     if params[:links] == "active" && current_user.active
-      @results = GoogleService.new(@topic.name).load_pages
+      @results ||= GoogleService.new(@topic.name).load_pages
     end
   end
 

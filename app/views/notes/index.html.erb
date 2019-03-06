@@ -1,6 +1,6 @@
 <h1><%= link_to "Topics", topics_path %>/<%= link_to @topic.name, topic_path(@topic) %>/Notes</h1>
 
-<h3>Links</h3>
+<h3>Tags</h3>
 <div id="notes-show">
   <% @notes.each do |note| %>
     <% if note.links %>

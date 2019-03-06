@@ -11,10 +11,17 @@ class UsersController < ApplicationController
     @user.active = false
     if @user.save
       session[:user_id] = @user.id
-      redirect_to :profile
+      EmailVerificationMailer.invite(@user.email).deliver_now
+      redirect_to :email_verification
     else
       render :new
     end
+  end
+
+  def activate
+    @user = User.find(session[:user_id])
+    @user.active = true
+    @user.save
   end
 
   private
