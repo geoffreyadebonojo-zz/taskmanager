@@ -28,7 +28,7 @@ gem 'autocomplete-off'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 gem 'fast_jsonapi'
-
+gem 'figaro'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
