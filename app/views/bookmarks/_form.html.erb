@@ -1,27 +1,19 @@
-<%= form_for(:bookmarks, :url => topic_bookmarks_path, :method => :post) do |form| %>
 
-  <% if bookmark.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(bookmark.errors.count, "error") %> prohibited this bookmark from being saved:</h2>
-
-      <ul>
-      <% bookmark.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<% if @results %>
+<table>
+  <tbody>
+    <% @results.each_with_index do |result, index| %>
+      <%= form_for(:bookmark, :url => topic_bookmarks_path, :method => :post) do |form| %>
+        <tr>
+          <td><button>Save</button></td>
+          <td><%= index + 1 %>) <%= result [0] %></td>
+          <td><%= link_to result [1], result[1], target:"_blank", class:"google-link"%></td>
+        </tr>
+        <%= form.hidden_field :topic_id, value: "#{params[:topic_id]}" %>
+        <%= form.hidden_field :url, value: "#{result[1]}"%>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <% end %>
 
-  <div class="field">
-    <%= form.label :url %>
-    <%= form.text_field :url %>
-  </div>
-
-  <div class="field">
-    <%= form.hidden_field :topic_id, value: "#{params[:topic_id]}" %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  </tbody>
+</table>
 <% end %>

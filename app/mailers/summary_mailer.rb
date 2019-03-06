@@ -5,6 +5,6 @@ class SummaryMailer < ApplicationMailer
     @videos = @topic.videos.all
     @bookmarks = @topic.bookmarks.all
     @notes = @topic.notes.all
-    mail(to: email, subject: "#{@topic.name} notes")
+    mail(to: @email, subject: "#{@topic.name} notes")
   end
 end

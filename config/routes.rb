@@ -19,6 +19,11 @@ Rails.application.routes.draw do
   get '/registration', to: 'users#new'
   post '/registration', to: 'users#create'
 
+  get '/activate', to: 'users#activate'
+
+  get '/email_verification', to: 'email_verification#show'
+
+
   resources :topics do
     resources :bookmarks
     resources :videos

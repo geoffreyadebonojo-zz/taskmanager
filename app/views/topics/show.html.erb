@@ -1,20 +1,14 @@
 <h1><%= link_to "Topics", topics_path %>/<%= @topic.name %></h1>
 
-<div>
-  <%= link_to 'Bookmarks', "/topics/#{@topic.id}/bookmarks" %>:
-  <%= @topic.bookmarks.count %>
-</div>
+<div id="topic-show">
+  <div><%= link_to 'Bookmarks', "/topics/#{@topic.id}/bookmarks" %>:</div>
+  <div><%= @topic.bookmarks.count %></div>
 
-<div>
-  <%= link_to 'Videos', "/topics/#{@topic.id}/videos" %>:
-  <%= @topic.videos.count %>
-</div>
+  <div><%= link_to 'Videos', "/topics/#{@topic.id}/videos" %>:</div>
+  <div><%= @topic.videos.count %></div>
 
-<div>
-  <%= link_to 'Notes', "/topics/#{@topic.id}/notes" %>:
-  <%= @topic.notes.count  %>
-</div>
+  <div><%= link_to 'Notes', "/topics/#{@topic.id}/notes" %>:</div>
+  <div><%= @topic.notes.count  %></div>
 
-<div>
-  <%= link_to 'Summary', "/topics/#{@topic.id}/summary" %>
+  <div><%= link_to 'Summary', "/topics/#{@topic.id}/summary" %></div>
 </div>

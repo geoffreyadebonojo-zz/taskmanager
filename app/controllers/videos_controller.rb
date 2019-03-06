@@ -37,7 +37,7 @@ class VideosController < ApplicationController
     @video = Video.new(video_params)
     @title = YoutubeTitleGetter.new(params[:videos][:uri]).title
     @video.title = @title
-    
+
     respond_to do |format|
       if @video.save
         format.html { redirect_to topic_videos_url, notice: 'Video was successfully created.' }

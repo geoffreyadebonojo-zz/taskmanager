@@ -13,8 +13,7 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
+    <%= form.text_area :body, style:"resize:none;" %>
   </div>
 
   <div class="field">
@@ -22,7 +21,7 @@
   </div>
 
   <div class="field">
-    <%= form.hidden_field :video_id %>
+    <%= form.hidden_field :video_id, value:"#{params[:video_id]}"%>
   </div>
 
   <div class="field">

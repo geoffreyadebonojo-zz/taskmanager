@@ -1,17 +1,17 @@
 <h1>Topics</h1>
 
-<%= render 'form', topic: @topic %>
+<div id="topic-index">
+  <%= render 'form', topic: @topic %>
 
-<hr>
-<table>
-  <tbody>
-    <% @topics.each do |topic| %>
-      <tr>
-        <td><%= link_to topic.name, topic %></td>
-        <td><%= link_to 'Destroy', topic, method: :delete %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+  <hr>
+  <table>
+    <tbody>
+      <% @topics.each do |topic| %>
+        <tr>
+          <td><%= link_to topic.name, topic %></td>
+          <td><%= link_to 'Destroy', topic, method: :delete, class:"destroy-link"%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

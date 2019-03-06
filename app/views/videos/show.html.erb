@@ -1,9 +1,11 @@
-<h1><%= @video.topic.name %></h1>
+<div id="upper-page">
+  <h1><%= @video.topic.name %></h1>
 
-<%= link_to 'Edit', edit_topic_video_path(@video) %> |
-<%= link_to 'Back', topic_videos_path %>
+  <%= link_to 'Edit', edit_topic_video_path(@video) %> |
+  <%= link_to 'Back', topic_videos_path %>
+</div>
+<button id="hide-upper-page">Hide</button>
+<iframe id="video" src="<%= @video.uri %>" frameborder="0" allowfullscreen height= "300px"></iframe>
 
-<iframe id="video" src="<%= @video.uri %>" frameborder="0" allowfullscreen width="100%" height="300px"></iframe>
-
-<button id="open-notes">Notes</button>
-<iframe id="notes" src="/topics/<%=@topic.id%>/notes/new" style="border: red solid 1px;"></iframe>
+<button id="open-new-notes">New Note</button>
+<iframe id="new-notes" src="/topics/<%=@topic.id%>/notes/new?video_id=<%= @video.id %>"></iframe>

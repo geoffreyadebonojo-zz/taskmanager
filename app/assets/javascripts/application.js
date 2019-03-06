@@ -23,3 +23,18 @@
 // button.addEventListener('click', function(){
 //   var title = search.value;
 // });
+
+$( document ).ready(function() {
+
+  $('#open-new-notes').click(function() {
+    $('#new-notes').toggle();
+  });
+
+  $('#hide-upper-page').click(function() {
+    $('#upper-page').toggle();
+  });
+
+  $('#hide-upper-page').click(function () {
+      $('#video').toggleClass("active");
+  });
+});

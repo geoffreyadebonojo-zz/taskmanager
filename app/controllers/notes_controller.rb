@@ -15,7 +15,9 @@ class NotesController < ApplicationController
 
   # GET /notes/new
   def new
+    @topic = Topic.find(params[:topic_id])
     @note = Note.new
+    @notes = @topic.notes
   end
 
   # GET /notes/1/edit

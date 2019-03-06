@@ -16,6 +16,7 @@ class TopicsController < ApplicationController
   # GET /topics/new
   def new
     @topic = current_user.topics.new
+    @topic.name = params[:topic]
   end
 
   # GET /topics/1/edit

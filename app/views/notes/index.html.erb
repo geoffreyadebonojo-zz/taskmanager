@@ -1,29 +1,14 @@
 <h1><%= link_to "Topics", topics_path %>/<%= link_to @topic.name, topic_path(@topic) %>/Notes</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Body</th>
-      <th>Bookmark</th>
-      <th>Video</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @notes.each do |note| %>
-      <tr>
-        <td><%= note.body %></td>
-        <td><%= note.bookmark_id %></td>
-        <td><%= note.video_id %></td>
-        <td><%#= link_to 'Show', topic_note %></td>
-        <td><%#= link_to 'Edit', edit_note_path(note) %></td>
-        <td><%#= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<h3>Tags</h3>
+<div id="notes-show">
+  <% @notes.each do |note| %>
+    <% if note.links %>
+      <div><%= note.links %></div>
+      <div><%= link_to "View", "/topics/#{@topic.id}/videos/new?search=#{note.links}" %></div>
+      <div><%= link_to "Search", "#" %></div>
+      <div><%= link_to "Create Topic", "/topics/new?topic=#{note.links}" %></div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
+  <% end %>
+</div>
 <%= link_to 'New Note', new_topic_note_path %>
