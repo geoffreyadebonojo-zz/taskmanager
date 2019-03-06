@@ -7,11 +7,6 @@ class BookmarksController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @bookmarks = current_user.topics.find(params[:topic_id]).bookmarks.all
     @bookmark = current_user.topics.find(params[:topic_id]).bookmarks.new
-    @results = [["link", "url"], ["link", "url"], ["link", "url"], ["link", "url"]]
-
-    if params[:links] == "active" && current_user.active
-      @results = GoogleService.new(@topic.name).load_pages
-    end
   end
 
   # GET /bookmarks/1
@@ -24,6 +19,12 @@ class BookmarksController < ApplicationController
   def new
     @topic = Topic.find(params[:topic_id])
     @bookmark = Bookmark.new
+    # @results = [["link", "url"], ["link", "url"], ["link", "url"], ["link", "url"]]
+    @results = []
+
+    if params[:links] == "active" && current_user.active
+      @results = GoogleService.new(@topic.name).load_pages
+    end
   end
 
   # GET /bookmarks/1/edit
@@ -39,7 +40,7 @@ class BookmarksController < ApplicationController
 
     respond_to do |format|
       if @bookmark.save
-        format.html { redirect_to topic_bookmarks_url, notice: 'Bookmark was successfully created.' }
+        format.html { redirect_to request.referrer, notice: 'Bookmark was successfully created.' }
         format.json { render :show, status: :created, location: @bookmark }
       else
         format.html { render :new }

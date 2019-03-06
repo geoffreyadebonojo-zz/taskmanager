@@ -9,7 +9,7 @@
 
 .video-card {
   background: grey;
-  margin: 2em;
+  margin: 0.2em;
 }
 
 #save-button {
@@ -34,4 +34,12 @@
 
 .active {
   height: 500px;
+}
+
+#video-search-bar {
+  font-size: 2em;
+  border: 0;
+  border-bottom: 2px blue solid;
+  width: 100%;
+  text-align: center;
 }

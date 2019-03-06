@@ -1,3 +1,5 @@
+<h1><%= link_to "Topics", topics_path %>/<%= link_to @topic.name, topic_path(@topic) %>/Notes</h1>
+
 <div id="video-notes">
   <%= render 'form', note: @note %>
 </div>

@@ -31,20 +31,26 @@
 
   table {
 
-    width: 200%;
+    width: 100%;
 
     tbody {
       tr {
         td {
-          font-size: 2em;
-          line-height: 2em;
+          font-size: 1em;
+          line-height: 1em;
 
           .destroy-link {
             position: relative;
-            left: 100px;
+            left: 60px;
           }
         }
       }
     }
   }
+}
+
+#topic-show {
+  display: grid;
+  grid-template-columns: 200px 100px;
+  grid-gap: 10px;
 }

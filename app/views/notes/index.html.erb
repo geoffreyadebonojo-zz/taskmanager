@@ -1,10 +1,14 @@
 <h1><%= link_to "Topics", topics_path %>/<%= link_to @topic.name, topic_path(@topic) %>/Notes</h1>
 
 <h3>Links</h3>
-<% @notes.each do |note| %>
-  <% if note.links %>
-    <li><%= link_to note.links, "/topics/#{@topic.id}/videos/new?search=#{note.links}" %></li>
+<div id="notes-show">
+  <% @notes.each do |note| %>
+    <% if note.links %>
+      <div><%= note.links %></div>
+      <div><%= link_to "View", "/topics/#{@topic.id}/videos/new?search=#{note.links}" %></div>
+      <div><%= link_to "Search", "#" %></div>
+      <div><%= link_to "Create Topic", "/topics/new?topic=#{note.links}" %></div>
+    <% end %>
   <% end %>
-<% end %>
-
+</div>
 <%= link_to 'New Note', new_topic_note_path %>

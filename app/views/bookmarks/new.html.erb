@@ -1,7 +1,11 @@
-<h1>New Bookmark</h1>
+<h1><%= link_to "Topics", topics_path %>/<%= link_to @topic.name, topic_path(@topic) %>/Bookmarks</h1>
 
-<%= link_to "Search", "/topics/#{@topic.id}/bookmarks?links=active" %>
+<%= form_for(:bookmark, :url => topic_bookmarks_path, :method => :post) do |form| %>
+  <%= form.hidden_field :topic_id, value: "#{params[:topic_id]}" %>
+  <%= form.text_field :url, id:"bookmark-search-bar", placeholder:"Type or drag url here"%>
+  <%= form.submit %>
+<% end %>
 
-<%= render 'form', bookmark: @bookmark %>
-
+<%= link_to "Search", "/topics/#{@topic.id}/bookmarks/new?links=active" %> |
 <%= link_to 'Back', topic_bookmarks_path %>
+<%= render 'form', bookmark: @bookmark %>
