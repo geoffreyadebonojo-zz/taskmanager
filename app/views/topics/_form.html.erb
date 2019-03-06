@@ -11,9 +11,8 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="field" >
+    <%= form.text_field :name, id:"name-field", placeholder:"New Topic..."%>
   </div>
 
   <div class="field">
@@ -21,6 +20,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit id:"submit-button"%>
   </div>
 <% end %>

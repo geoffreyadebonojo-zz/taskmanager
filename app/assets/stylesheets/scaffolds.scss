@@ -2,9 +2,18 @@ body {
   background-color: #fff;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+  font-size: 2em;
+  line-height: 1em;
   margin: 0 33px 33px 33px;
+}
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+  h1 {
+    font-size: 3em;
+    line-height: 1em;
+  }
 }
 
 p, ol, ul, td {

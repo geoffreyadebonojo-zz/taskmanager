@@ -1,5 +1,7 @@
 <h1>New Bookmark</h1>
 
+<%= link_to "Search", "/topics/#{@topic.id}/bookmarks?links=active" %>
+
 <%= render 'form', bookmark: @bookmark %>
 
 <%= link_to 'Back', topic_bookmarks_path %>

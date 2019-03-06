@@ -1,0 +1,50 @@
+#topic-index {
+  form {
+
+    input#name-field {
+      padding: 10px;
+      font-size: 2em;
+    }
+
+    #name-field {
+      border: 0;
+      border-bottom: 2px blue solid;
+      width: 100%;
+      text-align: center;
+    }
+
+    div.actions {
+      padding: 50px;
+
+      input {
+        box-shadow: 1px 1px 2px 2px;
+        width: 100%;
+        font-size: 3em;
+
+        &:hover {
+          box-shadow: 2px 2px 2px 2px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  table {
+
+    width: 200%;
+
+    tbody {
+      tr {
+        td {
+          font-size: 2em;
+          line-height: 2em;
+
+          .destroy-link {
+            position: relative;
+            left: 100px;
+          }
+        }
+      }
+    }
+  }
+}

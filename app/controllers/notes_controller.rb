@@ -15,7 +15,10 @@ class NotesController < ApplicationController
 
   # GET /notes/new
   def new
+    @topic = Topic.find(params[:topic_id])
     @note = Note.new
+    @video = @topic.videos.find(params[:video_id])
+    @notes = @video.notes
   end
 
   # GET /notes/1/edit

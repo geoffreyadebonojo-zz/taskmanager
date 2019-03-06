@@ -13,4 +13,10 @@ class Note < ApplicationRecord
     Note.where(bookmark_id: "").where(video_id: "")
   end
 
+  def links
+    if self.body.include?("<") && self.body.include?(">")
+      self.body.split("<").last.split(">").first
+    end
+  end
+
 end

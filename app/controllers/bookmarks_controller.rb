@@ -7,6 +7,11 @@ class BookmarksController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @bookmarks = current_user.topics.find(params[:topic_id]).bookmarks.all
     @bookmark = current_user.topics.find(params[:topic_id]).bookmarks.new
+    @results = [["link", "url"], ["link", "url"], ["link", "url"], ["link", "url"]]
+
+    if params[:links] == "active"
+      @results = GoogleService.new(@topic.name).load_pages
+    end
   end
 
   # GET /bookmarks/1
@@ -17,6 +22,7 @@ class BookmarksController < ApplicationController
 
   # GET /bookmarks/new
   def new
+    @topic = Topic.find(params[:topic_id])
     @bookmark = Bookmark.new
   end
 
