@@ -2,6 +2,16 @@
 <% if @results %>
 <table>
   <tbody>
+    
+    <%= form_for(:bookmark, :url => topic_bookmarks_path, :method => :post) do |form| %>
+      <tr>
+        <td><button></button></td>
+        <td><%= index + 1 %>) <%= result [0] %></td>
+        <td><%= link_to result [1], result[1], target:"_blank", class:"google-link"%></td>
+      </tr>
+      <%= form.hidden_field :topic_id, value: "#{params[:topic_id]}" %>
+      <%= form.text_field :url, value: "#{result[1]}"%>
+    <% end %>
 
     <% @results.each_with_index do |result, index| %>
       <%= form_for(:bookmark, :url => topic_bookmarks_path, :method => :post) do |form| %>

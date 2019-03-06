@@ -4,5 +4,5 @@ class User < ApplicationRecord
   validates_presence_of :username
   validates :email, presence: true, uniqueness: true
 
-  has_many :topics
+  has_many :topics, dependent: :delete_all
 end
