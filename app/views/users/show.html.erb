@@ -1,3 +1,5 @@
 <h1>Profile page</h1>
 <h2>Username: <%= @user.username %></h2>
-<%= link_to "topics", topics_path(@user) %>
+
+<%= link_to "Edit Info", profile_edit_path %>
+<%= link_to "Topics", topics_path %>

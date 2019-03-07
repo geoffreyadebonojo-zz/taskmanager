@@ -1,17 +1,19 @@
 <h1>Topics</h1>
-
-<div id="topic-index">
+<div id="new-topic-form">
   <%= render 'form', topic: @topic %>
+</div>
+<div id="topic-index">
+  <div></div>
+  <div><i class="fas fa-bookmark"></i></div>
+  <div><i class="fas fa-video"></i></div>
+  <div><i class="fa fa-edit"></i></div>
+  <div></div>
 
-  <hr>
-  <table>
-    <tbody>
-      <% @topics.each do |topic| %>
-        <tr>
-          <td><%= link_to topic.name, topic %></td>
-          <td><%= link_to 'Destroy', topic, method: :delete, class:"destroy-link"%></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <% @topics.each do |topic| %>
+    <div><%= link_to topic.name, topic %></div>
+    <div><%= topic.bookmarks.count %></div>
+    <div><%= topic.videos.count %></div>
+    <div><%= topic.notes.count %></div>
+    <div><%= link_to '<i class="fa fa-trash" aria-hidden="true"></i>'.html_safe, topic, method: :delete, class:"destroy-link"%></div>
+  <% end %>
 </div>
