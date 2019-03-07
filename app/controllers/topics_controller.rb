@@ -58,7 +58,15 @@ class TopicsController < ApplicationController
   # DELETE /topics/1
   # DELETE /topics/1.json
   def destroy
+
+    if @topic.child
+      @child = @topic.child
+      @child.parent_id = 0
+      @child.save
+    end
+
     @topic.destroy
+
     respond_to do |format|
       format.html { redirect_to topics_url, notice: 'Topic was successfully destroyed.' }
       format.json { head :no_content }
