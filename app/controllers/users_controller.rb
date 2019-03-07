@@ -9,12 +9,31 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.active = false
+    @user.role = 0
     if @user.save
       session[:user_id] = @user.id
       EmailVerificationMailer.invite(@user.email).deliver_now
       redirect_to :email_verification
     else
       render :new
+    end
+  end
+
+  def edit
+    if params[:id]
+      @user = User.find(params[:id])
+    else
+      @user = current_user
+    end
+  end
+
+  def update
+    @user = User.find(session[:user_id])
+    @user.update(user_params)
+    if @user.save
+      redirect_to profile_path
+    else
+      render :edit
     end
   end
 

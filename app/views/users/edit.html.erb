@@ -1,0 +1,15 @@
+<%= form_for :user do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email, name:"user[email]" %>
+
+  <%= f.label :username %>
+  <%= f.text_field :username, name:"user[username]" %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password, name:"user[password]", id: "password-field" %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation, name:"user[password_confirmation]" %>
+
+  <%= submit_tag "Save Changes" %>
+<% end %>

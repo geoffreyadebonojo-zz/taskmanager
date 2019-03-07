@@ -16,13 +16,15 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   get '/profile', to: 'users#show'
+  get 'profile/edit', to: 'users#edit'
+  post 'profile/edit', to: 'users#update'
+
+
   get '/registration', to: 'users#new'
   post '/registration', to: 'users#create'
-
   get '/activate', to: 'users#activate'
 
   get '/email_verification', to: 'email_verification#show'
-
 
   resources :topics do
     resources :bookmarks

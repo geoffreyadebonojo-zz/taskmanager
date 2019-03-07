@@ -5,7 +5,7 @@ class Topic < ApplicationRecord
   has_many :notes, dependent: :delete_all
 
   def parent
-    if self.parent_id
+    if self.parent_id != nil && self.parent_id != 0
       Topic.find(self.parent_id)
     end
   end
@@ -17,7 +17,7 @@ class Topic < ApplicationRecord
   def increment
     ancestors = []
     ancestors << self
-    until ancestors.last.parent_id == nil
+    until ancestors.last.parent_id == 0
       ancestors << recursion(ancestors.last)
     end
     ancestors
