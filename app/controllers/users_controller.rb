@@ -51,7 +51,7 @@ class UsersController < ApplicationController
 
   def reset_form
     @user = User.find_by(reset_token: params[:token])
-    @token = User.reset_token
+    @token = @user.reset_token
   end
 
   def password_reset
