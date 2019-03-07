@@ -3,7 +3,7 @@
 <%= form_for(:bookmark, :url => topic_bookmarks_path, :method => :post) do |form| %>
   <%= form.hidden_field :topic_id, value: "#{params[:topic_id]}" %>
   <%= form.text_field :url, id:"bookmark-search-bar", placeholder:"Type or drag url here"%>
-  <%= form.submit %>
+  <%= form.submit id:"bookmark-search-submit-button" %>
 <% end %>
 
 <% if current_user.active %>

@@ -17,7 +17,7 @@ class Topic < ApplicationRecord
   def increment
     ancestors = []
     ancestors << self
-    until ancestors.last.parent_id == 0
+    until ancestors.last.parent_id == 0 || ancestors.last.parent == nil
       ancestors << recursion(ancestors.last)
     end
     ancestors

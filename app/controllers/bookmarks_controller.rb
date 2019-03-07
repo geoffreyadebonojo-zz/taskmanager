@@ -19,8 +19,8 @@ class BookmarksController < ApplicationController
   def new
     @topic = Topic.find(params[:topic_id])
     @bookmark = Bookmark.new
-    # @results = [["link", "url"], ["link", "url"], ["link", "url"], ["link", "url"]]
-    @results = []
+    @results = [["link an incredibly long and descriptive link name for a site", "urlareallyreallyreallylongurllongerthanthisevenis"], ["link", "url"], ["link", "url"], ["link", "url"]]
+    # @results = []
 
     if params[:links] == "active"
       @results = GoogleService.new(@topic.name).load_pages
