@@ -5,7 +5,11 @@ class PasswordResetController < ApplicationController
 
   def reset
     if User.find_by(email: params[:email])
-      PasswordResetMailer.reset(params[:email]).deliver_now
+      @user = User.find_by(email: params[:email])
+      @user.reset_token = reset_token
+      @user.save
+      binding.pry
+      PasswordResetMailer.reset(params[:email], @user.reset_token).deliver_now
       redirect_to :email_verification
     else
       redirect_to request.referrer

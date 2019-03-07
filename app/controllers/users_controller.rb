@@ -49,6 +49,21 @@ class UsersController < ApplicationController
     redirect_to :profile
   end
 
+  def reset_form
+  end
+
+  def password_reset
+    @user = User.find_by(params[:reset_token])
+    @user.update(user_params)
+    if @user.save
+      session[:user_id] = @user.id
+      binding.pry
+      redirect_to profile_path
+    else
+      render :edit
+    end
+  end
+
   private
 
   def user_params
