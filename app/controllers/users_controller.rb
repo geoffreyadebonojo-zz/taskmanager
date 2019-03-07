@@ -50,7 +50,6 @@ class UsersController < ApplicationController
   end
 
   def password_reset
-    @user = User.find(session[:user_id])
   end
 
   private
