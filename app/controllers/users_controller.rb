@@ -50,6 +50,8 @@ class UsersController < ApplicationController
   end
 
   def reset_form
+    @user = User.find_by(reset_token: params[:token])
+    @token = @user.reset_token
   end
 
   def password_reset
@@ -57,7 +59,6 @@ class UsersController < ApplicationController
     @user.update(user_params)
     if @user.save
       session[:user_id] = @user.id
-      binding.pry
       redirect_to profile_path
     else
       render :edit

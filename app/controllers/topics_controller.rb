@@ -12,7 +12,7 @@ class TopicsController < ApplicationController
   # GET /topics/1.json
   def show
     @parent = @topic.parent
-    @child = @topic.child
+    @children = @topic.children
   end
 
   # GET /topics/new
@@ -59,10 +59,11 @@ class TopicsController < ApplicationController
   # DELETE /topics/1.json
   def destroy
 
-    if @topic.child
-      @child = @topic.child
-      @child.parent_id = 0
-      @child.save
+    if @topic.children
+      @topic.children.each do |child|
+        child.parent_id = 0
+        child.save
+      end
     end
 
     @topic.destroy

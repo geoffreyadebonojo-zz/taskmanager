@@ -1,13 +1,17 @@
-<h1><%= link_to "Topics", topics_path %>/<%= @topic.name %></h1>
-
+<h1><%= link_to "Topics", topics_path %>/
 <% if @parent %>
-  <% @topic.increment.reverse.each do |ancestor| %>
-     -><%= link_to ancestor.name, topic_path(ancestor.id) %>
+  <% @topic.ancestors.reverse.each do |ancestor| %>
+    <%= link_to ancestor.name, topic_path(ancestor.id) %>/
   <% end %>
 <% end %>
+<%= @topic.name %></h1>
 
-<% if @child %>
-  -><%= link_to @child.name, topic_path(@child.id) %>
+<% if @children %>
+  <div id="topic-children">
+    <% @children.each do |child| %>
+      <p>-><%= link_to child.name, topic_path(child.id) %></p>
+    <% end %>
+  </div>
 <% end %>
 
 <div id="topic-show">

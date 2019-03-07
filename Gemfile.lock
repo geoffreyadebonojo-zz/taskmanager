@@ -93,6 +93,10 @@ GEM
       thor (~> 0.14)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    graphiql-rails (1.7.0)
+      railties
+      sprockets-rails
+    graphql (1.9.3)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (1.5.3)
@@ -262,6 +266,8 @@ DEPENDENCIES
   faker
   fast_jsonapi
   figaro
+  graphiql-rails
+  graphql
   jbuilder (~> 2.5)
   jquery-rails
   launchy

@@ -10,18 +10,21 @@ class Topic < ApplicationRecord
     end
   end
 
-  def child
-    Topic.find_by(parent_id: self.id)
+  def children
+    Topic.where(parent_id: self.id)
   end
 
-  def increment
+  def ancestors
     ancestors = []
     ancestors << self
     until ancestors.last.parent_id == 0 || ancestors.last.parent == nil
       ancestors << recursion(ancestors.last)
     end
+    ancestors.shift
     ancestors
   end
+
+  private
 
   def recursion(topic)
     topic.parent
