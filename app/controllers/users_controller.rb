@@ -43,6 +43,12 @@ class UsersController < ApplicationController
     @user.save
   end
 
+  def resend
+    @user = User.find(session[:user_id])
+    EmailVerificationMailer.invite(@user.email).deliver_now
+    redirect_to :profile
+  end
+
   private
 
   def user_params

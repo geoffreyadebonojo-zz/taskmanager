@@ -1,7 +1,12 @@
 <h1>Topics</h1>
-<div id="new-topic-form">
-  <%= render 'form', topic: @topic %>
-</div>
+<% if current_user.active %>
+  <div id="new-topic-form">
+    <%= render 'form', topic: @topic %>
+  </div>
+<% else %>
+  <h4>You can't add topics until you activate your account</h4>
+  <h4><%= button_to "Resend Activation Email", "/resend" %></h4>
+<% end %>
 <div id="topic-index">
   <div></div>
   <div><i class="fas fa-bookmark"></i></div>

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get '/registration', to: 'users#new'
   post '/registration', to: 'users#create'
   get '/activate', to: 'users#activate'
+  post '/resend', to: 'users#resend'
 
   get '/email_verification', to: 'email_verification#show'
 
