@@ -1,0 +1,8 @@
+<h1>Please enter your email</h1>
+
+<%= form_tag password_reset_path do %>
+  <p>
+    <%= text_field_tag :email %>
+    <%= submit_tag "Send Link" %>
+  </p>
+<% end %>
