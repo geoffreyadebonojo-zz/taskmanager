@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       EmailVerificationMailer.invite(@user.email).deliver_now
-      redirect_to :email_verification
+      redirect_to :profile
     else
       render :new
     end
