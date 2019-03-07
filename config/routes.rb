@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   get '/email_verification', to: 'email_verification#show'
   get '/password_reset', to: 'password_reset#show'
   post '/password_reset', to: 'password_reset#reset'
+  get '/reset_form', to: 'users#password_reset'
+  post '/reset_form', to: 'users#update'
 
   resources :topics do
     resources :bookmarks

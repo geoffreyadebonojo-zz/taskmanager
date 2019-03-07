@@ -49,6 +49,10 @@ class UsersController < ApplicationController
     redirect_to :profile
   end
 
+  def password_reset
+    @user = User.find(session[:user_id])
+  end
+
   private
 
   def user_params
