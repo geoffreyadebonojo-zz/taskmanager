@@ -37,4 +37,5 @@ $( document ).ready(function() {
   $('#hide-upper-page').click(function () {
       $('#video').toggleClass("active");
   });
+
 });

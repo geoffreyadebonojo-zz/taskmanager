@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
   end
   post "/graphql", to: "graphql#execute"
-  
+
   namespace :api do
     namespace :v1 do
       resources :topics, only: [:show] do
@@ -36,12 +36,14 @@ Rails.application.routes.draw do
   get '/password_reset', to: 'password_reset#show'
   post '/password_reset', to: 'password_reset#reset'
 
+
   resources :topics do
     resources :bookmarks
     resources :videos
     resources :notes
     get '/summary', to: 'summary#show'
     post '/summary', to: 'summary#create'
+    get '/view_tree', to: 'view_tree#show'
   end
 
 end

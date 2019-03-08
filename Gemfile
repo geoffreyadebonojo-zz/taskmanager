@@ -15,7 +15,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'autocomplete-off'
 gem 'fast_jsonapi'
 gem 'figaro'
-gem 'rack-cors'
+gem 'rack-cors', require: 'rack/cors'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'factory_bot_rails'
@@ -23,6 +23,7 @@ gem 'faker'
 
 gem 'mechanize'
 gem 'graphql'
+gem 'graphlient'
 
 group :development, :test do
   gem 'rb-readline'
