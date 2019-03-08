@@ -24,6 +24,8 @@ gem 'faker'
 gem 'mechanize'
 gem 'graphql'
 gem 'graphlient'
+gem 'react-rails'
+gem 'd3-rails'
 
 group :development, :test do
   gem 'rb-readline'

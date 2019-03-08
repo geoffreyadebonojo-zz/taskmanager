@@ -1,0 +1,14 @@
+.node {
+  fill: steelblue;
+  stroke: none;
+}
+.node:hover{
+  fill: red;
+  cursor: pointer;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1px;
+}

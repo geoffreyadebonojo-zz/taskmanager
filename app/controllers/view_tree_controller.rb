@@ -5,6 +5,9 @@ class ViewTreeController < ApplicationController
     @grandchildren = @children.map do |c|
       c.children if c.children
     end.flatten
+    @ggchildren = @grandchildren.map do |c|
+      c.children if c.children
+    end.flatten
   end
 
 end

@@ -3,8 +3,8 @@
     <p><%= @root.name %></p>
   </div>
 
-  <% @children.each_with_index do |child, index|%>
-    <div class="children" id="child-<%= index %>">
+  <% @children.reverse.each_with_index do |child, index|%>
+    <div class="children" id="child-<%= index %>" identifier="<%= child.id %>" index="<%= index %>">
       <p><%= child.name %></p>
     </div>
   <% end %>
@@ -15,5 +15,10 @@
     </div>
   <% end %>
 
+  <% @ggchildren.each_with_index do |ggchild, index|%>
+    <div class="ggchildren" id="ggchild-<%= index %>" grandparent="<%= ggchild.parent.id %>">
+      <p><%= ggchild.name %></p>
+    </div>
+  <% end %>
 
 </div>
