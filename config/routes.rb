@@ -36,7 +36,6 @@ Rails.application.routes.draw do
   get '/password_reset', to: 'password_reset#show'
   post '/password_reset', to: 'password_reset#reset'
 
-  get '/main', to: 'view_tree#main'
 
   resources :topics do
     resources :bookmarks
@@ -45,6 +44,7 @@ Rails.application.routes.draw do
     get '/summary', to: 'summary#show'
     post '/summary', to: 'summary#create'
     get '/view_tree', to: 'view_tree#show'
+    get '/main', to: 'view_tree#main'
   end
 
 end

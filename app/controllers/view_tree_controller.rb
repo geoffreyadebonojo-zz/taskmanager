@@ -10,4 +10,8 @@ class ViewTreeController < ApplicationController
     end.flatten
   end
 
+  def main
+    @topic = Topic.find(params[:topic_id])
+  end
+
 end

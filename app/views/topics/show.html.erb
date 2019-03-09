@@ -1,4 +1,4 @@
-<h1><%= link_to "Topics", topics_path %>/
+<h1><%= link_to "Topics", topics_path %>
 <% if @parent %>
   <% @topic.ancestors.reverse.each do |ancestor| %>
     <%= link_to ancestor.name, topic_path(ancestor.id) %>/
@@ -19,5 +19,5 @@
   <div class="centered"><%= link_to 'Videos', "/topics/#{@topic.id}/videos", class:"link"%></div>
   <div class="centered"><%= link_to 'Notes', "/topics/#{@topic.id}/notes", class:"link"%></div>
   <div class="centered"><%= link_to 'Summary', "/topics/#{@topic.id}/summary", class:"link"%></div>
-  <div class="centered"><%= link_to 'View Tree', "/topics/#{@topic.id}/view_tree", class:"link"%></div>
+  <div class="centered"><%= link_to 'View Tree', "/topics/#{@topic.id}/main", class:"link"%></div>
 </div>
