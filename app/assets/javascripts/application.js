@@ -13,6 +13,9 @@
 //= require rails-ujs
 //= require jquery
 //= require activestorage
+//= require react
+//= require react_ujs
+//= require components
 //= require_tree .
 
 // var notice = document.querySelector('#notice');
@@ -37,4 +40,5 @@ $( document ).ready(function() {
   $('#hide-upper-page').click(function () {
       $('#video').toggleClass("active");
   });
+
 });

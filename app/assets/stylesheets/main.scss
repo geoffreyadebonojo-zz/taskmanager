@@ -1,0 +1,32 @@
+.node {
+  fill: steelblue;
+  stroke: none;
+}
+.node:hover{
+  fill: red;
+  cursor: pointer;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1px;
+}
+
+main {
+  transform: rotate(-90deg);
+}
+
+svg {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  left: 0%;
+  top: 50px;
+
+  text {
+    font-size: 0.5em;
+    position:relative;
+    width: 50px;
+  }
+}

@@ -1,0 +1,24 @@
+<div id="nodes-container">
+  <div class="root">
+    <p><%= @root.name %></p>
+  </div>
+
+  <% @children.reverse.each_with_index do |child, index|%>
+    <div class="children" id="child-<%= index %>" identifier="<%= child.id %>" index="<%= index %>">
+      <p><%= child.name %></p>
+    </div>
+  <% end %>
+
+  <% @grandchildren.each_with_index do |grandchild, index|%>
+    <div class="grandchildren" id="grandchild-<%= index %>" parent="<%= grandchild.parent.id %>">
+      <p><%= grandchild.name %></p>
+    </div>
+  <% end %>
+
+  <% @ggchildren.each_with_index do |ggchild, index|%>
+    <div class="ggchildren" id="ggchild-<%= index %>" grandparent="<%= ggchild.parent.id %>">
+      <p><%= ggchild.name %></p>
+    </div>
+  <% end %>
+
+</div>
